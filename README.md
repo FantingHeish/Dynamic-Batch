@@ -77,6 +77,7 @@
 - static_single (batch=1) → baseline
 - dynamic_bs=2 / 4 / 8 → 模擬 dynamic batching 行為
 - bs=8 對 T4) 是最佳 trade-off，顯示 dynamic batching 的效果與 SM/Memory 結構有關。
+
 | Mode              | Throughput (tokens/s) | Speedup   | P95 Latency | GPU Util Avg | GPU Util Max | Max Mem |
 | ----------------- | --------------------- | --------- | ----------- | ------------ | ------------ | ------- |
 | **static_single** | **248**               | 1.00×     | **7994 ms** | 21%          | 46%          | 2.46 GB |
