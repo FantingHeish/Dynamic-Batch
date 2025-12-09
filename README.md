@@ -1,4 +1,4 @@
-# in-flight-Batching
+# Dynamic Batch
 
 ## 🎯 專案簡介
 針對大型語言模型（LLM）高吞吐量場景設計的 動態批次推論系統，
