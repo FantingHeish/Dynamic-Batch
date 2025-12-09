@@ -1,12 +1,14 @@
 # Dynamic Batch
 
 ## 🎯 專案簡介
-針對大型語言模型（LLM）高吞吐量場景設計的 動態批次推論系統，
-透過 CUDA 優化、KV Cache 管理與 GPU 記憶體最佳化，大幅提升推論效率。
-適用於服務多個併發使用者的生產環境，如 API 服務、對話機器人平台等。
-本專案採用 PyTorch CUDA + Dynamic Batching + Attention Masking 架構，
-實現智慧批次調度與記憶體管理，達成 7.37× 吞吐量提升與 86% 延遲降低，
-在保持回應品質的前提下，最大化 GPU 資源利用率。
+本專案實作一個 研究用 Dynamic Batch Inference Engine，用來量測 batch size 對大型語言模型（LLM）推論效能的影響。
+藉由 batch prefill、KV-cache decode、dynamic padding、attention masking 的方式，實際觀察：
+- Batch size 如何提升 GPU throughput（tokens/sec）
+- Batch size 如何影響平均 latency / P95 latency
+- Prefill / Decode 各自佔用多少時間
+- GPU 計算效率在 batch 不同時的差異
+此 PoC 使用 Qwen2.5-0.5B-Instruct 進行測試，採用 PyTorch CUDA + Dynamic Batching + Attention Masking 架構，
+實現智慧批次調度與記憶體管理，達成 7.37× 吞吐量提升與 86% 延遲降低，最大化 GPU 資源利用率。
 
 ## ✅ 核心功能
 ✅ 動態批次調度: 即時調整 batch size 適應不同請求長度
