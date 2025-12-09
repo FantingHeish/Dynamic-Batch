@@ -86,16 +86,16 @@
 | **dynamic_bs=8**  | **869**               | **3.50×** | **2356 ms** | **37%**      | 43%          | 2.53 GB |
 
 
-#### 🎯 2. Key Findings
-##### ⭐ 1. Throughput 上升：3.5×
+### 🎯 2. Key Findings
+#### ⭐ 1. Throughput 上升：3.5×
 Dynamic batching 讓 GPU 得以一次處理更多序列
-##### ⭐ 2. Latency 顯著下降：−70.5%
+#### ⭐ 2. Latency 顯著下降：−70.5%
 多個請求 共用一次 Prefill，大幅攤平 Self-Attention 的固定成本。Decode 過程也因多個序列併入同一 kernel 而吞吐提升。
-##### ⭐ 3. GPU 使用率提升 +15%
+#### ⭐ 3. GPU 使用率提升 +15%
 Baseline GPU idle 明顯（21%）。Dynamic batching 後 GPU 利用率提升到 36–38%：
-##### ⭐ 4. GPU Memory 幾乎不變（+3%）
+#### ⭐ 4. GPU Memory 幾乎不變（+3%）
 Dynamic padding + KV-cache reuse 成功控制記憶體。2.46GB → 2.53GB（+2.9%）。
-##### 🎉 bs=8 在 T4 GPU 上是最佳 sweet spot（效能 → 記憶體的最佳trade-off）
+#### 🎉 bs=8 在 T4 GPU 上是最佳 sweet spot（效能 → 記憶體的最佳trade-off）
 
 ## 環境需求
 🖥️ 環境需求
